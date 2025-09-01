@@ -1,5 +1,4 @@
 import fs from 'fs';
-// Import both utility functions
 import { convertBaseToBigInt, multiplyPolynomials } from './utils.js';
 
 const fileName = process.argv[2];
@@ -11,12 +10,12 @@ if (!fileName) {
 }
 
 try {
-  // --- 1. Read and Parse ---
+
   const fileContent = fs.readFileSync(fileName, 'utf8');
   const data = JSON.parse(fileContent);
-  const m = data.keys.k - 1; // Polynomial degree
+  const m = data.keys.k - 1; 
 
-  // --- 2. Extract and Convert Roots ---
+
   const roots = [];
   for (let i = 1; i <= m; i++) {
     const rootData = data[String(i)];
@@ -24,17 +23,16 @@ try {
     roots.push(convertBaseToBigInt(rootData.value, rootData.base));
   }
 
-  // --- 3. Calculate Final Polynomial ---
-  // Start with the polynomial '1' (represented as [1n])
+
   let resultPolynomial = [1n];
 
-  // Iteratively multiply by (x - root) for each root.
+
   for (const root of roots) {
-    const currentFactor = [1n, -root]; // Represents (x - root)
+    const currentFactor = [1n, -root]; 
     resultPolynomial = multiplyPolynomials(resultPolynomial, currentFactor);
   }
 
-  // --- 4. Display the Final Result ---
+
   console.log(`Final Polynomial Coefficients (for degree ${m}):`);
   console.log(resultPolynomial.map(c => c.toString()));
 
