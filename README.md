@@ -43,4 +43,29 @@ The script is run from the command line and accepts a single argument: the path 
 
 ### Syntax
 ```bash
-node solve.js <path_to_json_file>
+node solve.js <testcase1.json, testcase2.json>
+
+Expected Output
+Below is the console output when running the script with the provided test cases.
+
+Test Case 1
+Final Polynomial Coefficients (for degree 2):
+[ '1', '-11', '28' ]
+Test Case 2
+Final Polynomial Coefficients (for degree 6):
+[
+  '1',
+  '-16035585567652874221',
+  '62896005845998832818285892998257358574',
+  '-70101247814242093515413229739756995082336947152628757106',
+  '24591744981099998090053815670990379635936553571500369726557542164707725669',
+  '-2592352525729807210924107937826892194086488679171703356477006557000617068415514509018873217',
+  '2555329762523754641638371521787153182033159975203073626408066416562448111114093826928388280970414872420300'
+]
+File Structure
+/
+├── solve.js             # Main executable script
+├── utils.js             # Helper functions (base conversion, multiplication)
+├── testcase1.json       # Sample test case with standard numbers
+└── testcase2.json       # Sample test case with 
+
